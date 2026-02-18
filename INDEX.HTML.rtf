@@ -1,0 +1,521 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2867
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 <!DOCTYPE html>\
+<html lang="fr" dir="ltr">\
+<head>\
+    <meta charset="UTF-8">\
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">\
+    <meta name="description" content="Top10 Global - Classements mondiaux s\'e9curis\'e9s">\
+    <meta name="theme-color" content="#0f172a" id="themeColor">\
+    \
+    <!-- TH\'c8ME IMM\'c9DIAT (ANTI-FLASH) -->\
+    <script>\
+        (function() \{\
+            const saved = localStorage.getItem('t10_theme');\
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;\
+            const theme = saved || (prefersDark ? 'dark' : 'light');\
+            document.documentElement.setAttribute('data-theme', theme);\
+        \})();\
+    </script>\
+    \
+    <title>Top10 Global\'99</title>\
+    \
+    <style>\
+        /* === VARIABLES TH\'c8ME === */\
+        :root \{\
+            /* Couleurs de base */\
+            --primary: #0f172a;\
+            --secondary: #3b82f6;\
+            --accent: #f59e0b;\
+            --success: #10b981;\
+            --danger: #ef4444;\
+            \
+            /* Th\'e8me CLAIR (d\'e9faut) */\
+            --bg-primary: #ffffff;\
+            --bg-secondary: #f8fafc;\
+            --bg-tertiary: #f1f5f9;\
+            --text-primary: #0f172a;\
+            --text-secondary: #475569;\
+            --text-muted: #64748b;\
+            --border: #e2e8f0;\
+            --shadow: rgba(0,0,0,0.1);\
+            --card-bg: #ffffff;\
+            --header-bg: rgba(255,255,255,0.95);\
+        \}\
+\
+        [data-theme="dark"] \{\
+            --bg-primary: #0f172a;\
+            --bg-secondary: #1e293b;\
+            --bg-tertiary: #334155;\
+            --text-primary: #f8fafc;\
+            --text-secondary: #cbd5e1;\
+            --text-muted: #94a3b8;\
+            --border: #334155;\
+            --shadow: rgba(0,0,0,0.3);\
+            --card-bg: #1e293b;\
+            --header-bg: rgba(15,23,42,0.95);\
+        \}\
+\
+        /* === RESET & BASE === */\
+        * \{ box-sizing: border-box; margin: 0; padding: 0; \}\
+        \
+        html \{\
+            scroll-behavior: smooth;\
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;\
+        \}\
+\
+        body \{\
+            background: var(--bg-primary);\
+            color: var(--text-primary);\
+            line-height: 1.6;\
+            min-height: 100vh;\
+            transition: background 0.3s ease, color 0.3s ease;\
+        \}\
+\
+        /* === HEADER === */\
+        .header \{\
+            position: sticky;\
+            top: 0;\
+            background: var(--header-bg);\
+            backdrop-filter: blur(20px);\
+            border-bottom: 1px solid var(--border);\
+            z-index: 100;\
+            transition: all 0.3s;\
+        \}\
+\
+        .header-main \{\
+            padding: 1rem 0;\
+        \}\
+\
+        .header-content \{\
+            max-width: 1440px;\
+            margin: 0 auto;\
+            padding: 0 1rem;\
+            display: flex;\
+            align-items: center;\
+            justify-content: space-between;\
+            gap: 1rem;\
+        \}\
+\
+        .logo \{\
+            display: flex;\
+            align-items: center;\
+            gap: 0.5rem;\
+            font-size: 1.5rem;\
+            font-weight: 900;\
+            background: linear-gradient(135deg, #667eea, #764ba2);\
+            -webkit-background-clip: text;\
+            -webkit-text-fill-color: transparent;\
+            text-decoration: none;\
+        \}\
+\
+        .logo-icon \{\
+            width: 40px;\
+            height: 40px;\
+            background: linear-gradient(135deg, #667eea, #764ba2);\
+            border-radius: 12px;\
+            display: flex;\
+            align-items: center;\
+            justify-content: center;\
+            color: white;\
+            -webkit-text-fill-color: white;\
+            font-size: 1.25rem;\
+        \}\
+\
+        /* === BOUTON TH\'c8ME === */\
+        .theme-toggle \{\
+            width: 48px;\
+            height: 48px;\
+            border-radius: 50%;\
+            border: 2px solid var(--border);\
+            background: var(--bg-tertiary);\
+            cursor: pointer;\
+            display: flex;\
+            align-items: center;\
+            justify-content: center;\
+            font-size: 1.25rem;\
+            transition: all 0.3s ease;\
+            position: relative;\
+        \}\
+\
+        .theme-toggle:hover \{\
+            transform: scale(1.1);\
+            border-color: var(--secondary);\
+        \}\
+\
+        /* Ic\'f4nes */\
+        .theme-icon \{\
+            position: absolute;\
+            transition: all 0.3s ease;\
+        \}\
+\
+        [data-theme="light"] .moon \{ opacity: 0; transform: rotate(90deg) scale(0.5); \}\
+        [data-theme="light"] .sun \{ opacity: 1; transform: rotate(0) scale(1); \}\
+        \
+        [data-theme="dark"] .sun \{ opacity: 0; transform: rotate(-90deg) scale(0.5); \}\
+        [data-theme="dark"] .moon \{ opacity: 1; transform: rotate(0) scale(1); \}\
+\
+        /* === NAVIGATION === */\
+        .nav \{\
+            background: var(--bg-secondary);\
+            border-bottom: 1px solid var(--border);\
+            overflow-x: auto;\
+        \}\
+\
+        .nav-content \{\
+            max-width: 1440px;\
+            margin: 0 auto;\
+            padding: 0.5rem 1rem;\
+            display: flex;\
+            gap: 0.5rem;\
+        \}\
+\
+        .nav-item \{\
+            flex-shrink: 0;\
+            padding: 0.5rem 1rem;\
+            border-radius: 9999px;\
+            font-size: 0.9rem;\
+            font-weight: 500;\
+            color: var(--text-secondary);\
+            text-decoration: none;\
+            transition: all 0.2s;\
+            white-space: nowrap;\
+        \}\
+\
+        .nav-item:hover, .nav-item.active \{\
+            background: var(--bg-tertiary);\
+            color: var(--text-primary);\
+        \}\
+\
+        /* === MAIN === */\
+        .main \{\
+            max-width: 1440px;\
+            margin: 0 auto;\
+            padding: 2rem 1rem;\
+        \}\
+\
+        /* === HERO === */\
+        .hero \{\
+            text-align: center;\
+            padding: 4rem 1rem;\
+            background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));\
+            border-radius: 24px;\
+            margin-bottom: 3rem;\
+        \}\
+\
+        .hero h1 \{\
+            font-size: clamp(2rem, 5vw, 3.5rem);\
+            font-weight: 900;\
+            margin-bottom: 1rem;\
+            background: linear-gradient(135deg, #667eea, #764ba2);\
+            -webkit-background-clip: text;\
+            -webkit-text-fill-color: transparent;\
+        \}\
+\
+        .hero p \{\
+            color: var(--text-secondary);\
+            font-size: 1.125rem;\
+            max-width: 600px;\
+            margin: 0 auto 2rem;\
+        \}\
+\
+        .hero-stats \{\
+            display: flex;\
+            justify-content: center;\
+            gap: 3rem;\
+            margin-bottom: 2rem;\
+        \}\
+\
+        .stat \{\
+            text-align: center;\
+        \}\
+\
+        .stat-value \{\
+            font-size: 2.5rem;\
+            font-weight: 900;\
+            color: var(--text-primary);\
+        \}\
+\
+        .stat-label \{\
+            font-size: 0.875rem;\
+            color: var(--text-muted);\
+            text-transform: uppercase;\
+        \}\
+\
+        /* === CAT\'c9GORIES === */\
+        .section-title \{\
+            font-size: 1.75rem;\
+            font-weight: 800;\
+            margin-bottom: 1.5rem;\
+            color: var(--text-primary);\
+        \}\
+\
+        .categories-grid \{\
+            display: grid;\
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));\
+            gap: 1rem;\
+        \}\
+\
+        .category-card \{\
+            background: var(--card-bg);\
+            border: 1px solid var(--border);\
+            border-radius: 16px;\
+            padding: 1.5rem;\
+            transition: all 0.3s ease;\
+            cursor: pointer;\
+        \}\
+\
+        .category-card:hover \{\
+            transform: translateY(-4px);\
+            box-shadow: 0 20px 40px var(--shadow);\
+            border-color: var(--secondary);\
+        \}\
+\
+        .category-icon \{\
+            width: 56px;\
+            height: 56px;\
+            border-radius: 12px;\
+            display: flex;\
+            align-items: center;\
+            justify-content: center;\
+            font-size: 1.75rem;\
+            margin-bottom: 1rem;\
+        \}\
+\
+        .category-card h3 \{\
+            font-size: 1.125rem;\
+            font-weight: 700;\
+            margin-bottom: 0.5rem;\
+            color: var(--text-primary);\
+        \}\
+\
+        .category-card p \{\
+            font-size: 0.875rem;\
+            color: var(--text-muted);\
+            line-height: 1.5;\
+        \}\
+\
+        .category-meta \{\
+            display: flex;\
+            justify-content: space-between;\
+            margin-top: 1rem;\
+            padding-top: 1rem;\
+            border-top: 1px solid var(--border);\
+            font-size: 0.75rem;\
+            color: var(--text-muted);\
+        \}\
+\
+        /* === FOOTER === */\
+        .footer \{\
+            background: var(--bg-secondary);\
+            border-top: 1px solid var(--border);\
+            padding: 3rem 1rem;\
+            margin-top: 3rem;\
+        \}\
+\
+        .footer-content \{\
+            max-width: 1440px;\
+            margin: 0 auto;\
+            text-align: center;\
+            color: var(--text-muted);\
+        \}\
+\
+        /* === RESPONSIVE === */\
+        @media (max-width: 768px) \{\
+            .hero-stats \{ flex-direction: column; gap: 1rem; \}\
+            .categories-grid \{ grid-template-columns: 1fr; \}\
+        \}\
+\
+        /* === ANIMATIONS === */\
+        @keyframes fadeIn \{\
+            from \{ opacity: 0; transform: translateY(20px); \}\
+            to \{ opacity: 1; transform: translateY(0); \}\
+        \}\
+\
+        .category-card \{\
+            animation: fadeIn 0.5s ease forwards;\
+        \}\
+\
+        .category-card:nth-child(1) \{ animation-delay: 0.1s; \}\
+        .category-card:nth-child(2) \{ animation-delay: 0.2s; \}\
+        .category-card:nth-child(3) \{ animation-delay: 0.3s; \}\
+        .category-card:nth-child(4) \{ animation-delay: 0.4s; \}\
+    </style>\
+</head>\
+<body>\
+\
+    <!-- HEADER -->\
+    <header class="header">\
+        <div class="header-main">\
+            <div class="header-content">\
+                <a href="./" class="logo">\
+                    <div class="logo-icon">T10</div>\
+                    <span>Top10 Global\'99</span>\
+                </a>\
+                \
+                <!-- BOUTON TH\'c8ME -->\
+                <button class="theme-toggle" id="themeToggle" aria-label="Changer de th\'e8me">\
+                    <span class="theme-icon sun">\uc0\u9728 \u65039 </span>\
+                    <span class="theme-icon moon">\uc0\u55356 \u57113 </span>\
+                </button>\
+            </div>\
+        </div>\
+        \
+        <nav class="nav">\
+            <div class="nav-content">\
+                <a href="#" class="nav-item active">\uc0\u55356 \u57312  Accueil</a>\
+                <a href="#" class="nav-item">\uc0\u55357 \u56514  Cat\'e9gories</a>\
+                <a href="#" class="nav-item">\uc0\u55356 \u57101  Pays</a>\
+                <a href="#" class="nav-item">\uc0\u55357 \u56613  Tendances</a>\
+                <a href="#" class="nav-item">\uc0\u55357 \u56401  Premium</a>\
+            </div>\
+        </nav>\
+    </header>\
+\
+    <!-- MAIN -->\
+    <main class="main">\
+        \
+        <!-- HERO -->\
+        <section class="hero">\
+            <h1>Les meilleurs classements du monde</h1>\
+            <p>D\'e9couvrez, comparez et choisissez parmi des milliers de Top 10 dans chaque pays et cat\'e9gorie.</p>\
+            \
+            <div class="hero-stats">\
+                <div class="stat">\
+                    <div class="stat-value">800+</div>\
+                    <div class="stat-label">Cat\'e9gories</div>\
+                </div>\
+                <div class="stat">\
+                    <div class="stat-value">195</div>\
+                    <div class="stat-label">Pays</div>\
+                </div>\
+                <div class="stat">\
+                    <div class="stat-value">100K+</div>\
+                    <div class="stat-label">Classements</div>\
+                </div>\
+            </div>\
+        </section>\
+\
+        <!-- CAT\'c9GORIES -->\
+        <section>\
+            <h2 class="section-title">Explorer par cat\'e9gorie</h2>\
+            \
+            <div class="categories-grid">\
+                <div class="category-card">\
+                    <div class="category-icon" style="background: linear-gradient(135deg, #ef4444, #f87171);">\uc0\u55357 \u56983 </div>\
+                    <h3>Automobile</h3>\
+                    <p>Voitures, motos, v\'e9hicules \'e9lectriques et accessoires auto</p>\
+                    <div class="category-meta">\
+                        <span>\uc0\u55357 \u56385 \u65039  2.4M vues</span>\
+                        <span>1,240 classements</span>\
+                    </div>\
+                </div>\
+\
+                <div class="category-card">\
+                    <div class="category-icon" style="background: linear-gradient(135deg, #10b981, #34d399);">\uc0\u55356 \u57317 </div>\
+                    <h3>Sant\'e9 & Bien-\'eatre</h3>\
+                    <p>Cliniques, fitness, nutrition et sant\'e9 mentale</p>\
+                    <div class="category-meta">\
+                        <span>\uc0\u55357 \u56385 \u65039  3.1M vues</span>\
+                        <span>2,100 classements</span>\
+                    </div>\
+                </div>\
+\
+                <div class="category-card">\
+                    <div class="category-icon" style="background: linear-gradient(135deg, #3b82f6, #60a5fa);">\uc0\u55357 \u56507 </div>\
+                    <h3>Technologie</h3>\
+                    <p>Smartphones, ordinateurs, applications et IA</p>\
+                    <div class="category-meta">\
+                        <span>\uc0\u55357 \u56385 \u65039  4.2M vues</span>\
+                        <span>3,400 classements</span>\
+                    </div>\
+                </div>\
+\
+                <div class="category-card">\
+                    <div class="category-icon" style="background: linear-gradient(135deg, #f59e0b, #fbbf24);">\uc0\u9917 </div>\
+                    <h3>Sport</h3>\
+                    <p>Football, basketball, tennis et sports extr\'eames</p>\
+                    <div class="category-meta">\
+                        <span>\uc0\u55357 \u56385 \u65039  5.6M vues</span>\
+                        <span>4,200 classements</span>\
+                    </div>\
+                </div>\
+\
+                <div class="category-card">\
+                    <div class="category-icon" style="background: linear-gradient(135deg, #ec4899, #f472b6);">\uc0\u55357 \u56561 </div>\
+                    <h3>R\'e9seaux Sociaux</h3>\
+                    <p>Influenceurs, cr\'e9ateurs de contenu et plateformes</p>\
+                    <div class="category-meta">\
+                        <span>\uc0\u55357 \u56385 \u65039  6.7M vues</span>\
+                        <span>5,600 classements</span>\
+                    </div>\
+                </div>\
+\
+                <div class="category-card">\
+                    <div class="category-icon" style="background: linear-gradient(135deg, #8b5cf6, #a78bfa);">\uc0\u55357 \u56382 </div>\
+                    <h3>Animaux</h3>\
+                    <p>Races, accessoires, v\'e9t\'e9rinaires et bien-\'eatre animal</p>\
+                    <div class="category-meta">\
+                        <span>\uc0\u55357 \u56385 \u65039  2.8M vues</span>\
+                        <span>1,800 classements</span>\
+                    </div>\
+                </div>\
+            </div>\
+        </section>\
+\
+    </main>\
+\
+    <!-- FOOTER -->\
+    <footer class="footer">\
+        <div class="footer-content">\
+            <p>&copy; 2024 Top10 Global\'99. Th\'e8me adaptatif clair/sombre.</p>\
+        </div>\
+    </footer>\
+\
+    <!-- JAVASCRIPT TH\'c8ME -->\
+    <script>\
+        // Gestionnaire de th\'e8me\
+        const themeManager = \{\
+            init() \{\
+                this.toggle = document.getElementById('themeToggle');\
+                this.html = document.documentElement;\
+                this.metaTheme = document.getElementById('themeColor');\
+                \
+                if (this.toggle) \{\
+                    this.toggle.addEventListener('click', () => this.switch());\
+                \}\
+                \
+                // Sync avec pr\'e9f\'e9rence syst\'e8me\
+                window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => \{\
+                    if (!localStorage.getItem('t10_theme')) \{\
+                        this.apply(e.matches ? 'dark' : 'light');\
+                    \}\
+                \});\
+            \},\
+            \
+            switch() \{\
+                const current = this.html.getAttribute('data-theme');\
+                const next = current === 'light' ? 'dark' : 'light';\
+                this.apply(next);\
+                localStorage.setItem('t10_theme', next);\
+            \},\
+            \
+            apply(theme) \{\
+                this.html.setAttribute('data-theme', theme);\
+                if (this.metaTheme) \{\
+                    this.metaTheme.content = theme === 'dark' ? '#0f172a' : '#ffffff';\
+                \}\
+            \}\
+        \};\
+\
+        // Initialiser\
+        document.addEventListener('DOMContentLoaded', () => themeManager.init());\
+    </script>\
+\
+</body>\
+</html>}
